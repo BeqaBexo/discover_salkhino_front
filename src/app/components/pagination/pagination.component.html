@@ -1,0 +1,18 @@
+<div class="pagination-container">
+    <label>ნაჩვენებია:</label>
+    <select
+      [(ngModel)]="itemsPerPage"
+      (change)="updateItemsPerPage($event)"
+      (keydown.enter)="updateItemsPerPage($event)"
+    >
+      <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+    </select>
+
+    <!-- Pagination controls -->
+    <div class="pagination-controls">
+      <button (click)="prevPage()" [disabled]="currentPage === 1">&laquo;</button>
+      <span>{{ currentPage }} / {{ totalPages }}</span>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">&raquo;</button>
+    </div>
+  </div>
+  

@@ -1,0 +1,49 @@
+<header class="header">
+  <img src="assets/images/logo.png" alt="Logo" class="logo" />
+  <div class="title" routerLink="/dashboard">
+    <span [innerHTML]="getStyledTitle('აღმოაჩინე სალხინო')"></span>
+  </div>
+
+<nav class="main-nav">
+  <a *ngFor="let item of menuItems"
+     [routerLink]="item.path"
+     [innerHTML]="getStyledTitle(item.label)"
+     >
+  </a>
+
+</nav>
+
+
+
+
+  <div class="actions">
+    <button class="action-btn notification-btn">
+      <i class="fas fa-bell"></i>
+      <span class="badge">{{ notificationCount > 99 ? '99+' : notificationCount }}</span>
+    </button>
+
+    <button class="action-btn heart-btn">
+      <i class="fas fa-heart"></i>
+      <span class="badge heart-badge">{{ heartCount }}</span>
+    </button>
+
+        <!-- Language Icon (ქართული დროშის ლოგო) -->
+    <button class="action-btn lang-btn">
+      <img src="assets/icons/flag-ge.png" alt="ქართული" class="lang-icon" />
+    </button>
+
+    <button
+      class="action-btn add-btn"
+      *ngIf="authService.isLoggedIn()"
+      routerLink="/admin">  
+      <i class="fas fa-plus"></i> 
+    </button>
+
+    <button
+      class="action-btn logout-btn"
+      *ngIf="authService.isLoggedIn()"
+      (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i> გამოსვლა
+    </button>
+  </div>
+</header>

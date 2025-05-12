@@ -1,0 +1,18 @@
+<div class="carousel">
+  <div class="slide" *ngIf="slides.length > 0">
+    <img [src]="slides[currentSlide].image" alt="slide" />
+    <div class="slide-content">
+      <h2>{{ slides[currentSlide].title }}</h2>
+      <p>{{ slides[currentSlide].description }}</p>
+    </div>
+  </div>
+
+  <div class="pagination" *ngIf="slides.length > 1">
+    <span
+      class="dot"
+      *ngFor="let slide of slides; let i = index"
+      [class.active]="i === currentSlide"
+      (click)="goToSlide(i)"
+    ></span>
+  </div>
+</div>

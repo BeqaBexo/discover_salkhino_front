@@ -1,0 +1,93 @@
+.left-slide-show {
+  position: fixed;
+  top: 40%;
+  left: 2%;
+  transform: translateY(-50%);
+  width: 160px;
+  height: 500px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  overflow: hidden;
+  z-index: 10;
+
+  .background-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    transition: transform 0.4s ease-in-out;
+  }
+
+   &:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+
+    .background-img {
+      transform: scale(1.1);
+    }
+  }
+
+}
+
+.social-icons-banner {
+  position: fixed;
+  background-color: none;
+  top: calc(40% + 270px); // ქვემოთ ჩამოწევა ფოტოს მიხედვით
+  left: 2%;
+  width: 160px;
+  padding: 16px 0;
+  //background: linear-gradient(135deg, #f5f7fa, #d3dce8);
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.4s ease-in-out;
+
+     &:hover {
+    transform: translateY(10%) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+
+    .social-icons-banner {
+      transform: scale(1.1);
+    }
+  }
+
+  .icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+
+    &.youtube {
+      background-color: #ff0000;
+    }
+
+    &.gmail {
+      background-color: #d44638;
+    }
+
+    &.facebook {
+      background-color: #3b5998;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .left-slide-show,
+  .social-icons-banner {
+    display: none;
+  }
+}

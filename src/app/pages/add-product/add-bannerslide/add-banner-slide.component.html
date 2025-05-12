@@ -1,0 +1,16 @@
+<div class="add-banner-slide-container">
+  <h2>ბანერის სლაიდის დამატება</h2>
+
+  <form [formGroup]="bannerForm" (ngSubmit)="onSubmit()">
+    <label>სათაური</label>
+    <input type="text" formControlName="titleText" />
+
+    <label>აღწერა</label>
+    <textarea formControlName="summaryText" rows="4"></textarea>
+
+    <label>სურათი (JPG, PNG)</label>
+    <input type="file" accept="image/*" (change)="onImageSelected($event)" />
+
+    <button type="submit">დამატება</button>
+  </form>
+</div>

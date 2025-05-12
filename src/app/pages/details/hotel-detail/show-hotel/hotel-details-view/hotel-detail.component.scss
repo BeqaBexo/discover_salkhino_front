@@ -1,0 +1,156 @@
+.hotel-detail-card {
+  background: linear-gradient(145deg, #ffffff, #f2f2f2);
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  max-width: 860px;
+  margin: 120px auto 40px;
+  animation: fadeInSlide 0.6s ease-in-out;
+
+  .header {
+    text-align: center;
+    margin-bottom: 28px;
+
+    h2 {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .date {
+      font-size: 0.95rem;
+      color: #7f8c8d;
+    }
+  }
+
+  .gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 25px;
+
+    .gallery-thumb {
+      width: 120px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .lightbox-image {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      background: none;
+      color: white;
+      font-size: 3rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .lightbox-close {
+      top: 20px;
+      right: 30px;
+    }
+
+    .lightbox-prev {
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next {
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .hotel-info {
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 1.05rem;
+        color: #34495e;
+
+        strong {
+          color: #2c3e50;
+        }
+      }
+    }
+  }
+
+  .hotel-description {
+    margin-top: 25px;
+
+    h3 {
+      font-size: 1.3rem;
+      color: #842029;
+    }
+
+    .description-box {
+      max-height: 200px;
+      overflow-y: auto;
+      background: #fdf5f5;
+      border-radius: 10px;
+      border: 1px solid #e0cfcf;
+      padding: 15px;
+    }
+  }
+
+  .back-btn {
+    margin-top: 30px;
+    padding: 12px 24px;
+    background: #6b1c27;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background: #50131b;
+    }
+  }
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

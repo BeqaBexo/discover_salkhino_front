@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="layout">
+<div class="gallery-section">
+  <h2 class="gallery-title">📸 ჩვენი სოფლის გალერეა</h2>
+  <p class="gallery-subtitle">სალხინოს მიმზიდველი ადგილების ფოტოები</p>
+
+  <div class="gallery-grid">
+    <div class="gallery-card" *ngFor="let item of alboms">
+      <img [src]="item.imageUrl"
+           alt="Albom Image"
+           (click)="openImage(item.imageUrl)"
+           style="cursor: zoom-in;" />
+      <div class="caption">{{ item.title }}</div>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ ეს არის enlarge მოდალი -->
+<div class="image-modal" *ngIf="enlargedImage">
+  <div class="modal-overlay" (click)="closeImage()">
+    <img [src]="enlargedImage" class="modal-image" />
+    <button class="close-btn" (click)="closeImage()">×</button>
+  </div>
+</div>
+</div>

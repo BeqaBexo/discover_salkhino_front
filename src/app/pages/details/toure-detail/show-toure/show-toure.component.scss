@@ -1,0 +1,143 @@
+.toure-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+
+.toure-list-section {
+    flex: 1;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+
+    .list-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+
+      h2 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #333;
+      }
+    }
+
+    .toure-toures {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+      gap: 20px; /* Space between cards */
+    }
+    
+    .toure-card {
+      position: relative;
+      background: linear-gradient(145deg, #ffffff, #f9f9f9); /* Subtle gradient */
+      border-radius: 15px; /* Smooth rounded corners */
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      overflow: hidden;
+      height: 450px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+      &:hover {
+        transform: translateY(-5px); /* Subtle lift */
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+      }
+    
+      .rating {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+        padding: 5px 10px;
+        border-radius: 12px; /* Smooth pill shape */
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #f39c12; /* Star color */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+        i {
+          color: #f39c12; /* Star icon color */
+        }
+      }
+    
+      .toure-image {
+        width: 100%;
+        height: 190px;
+        object-fit: cover; /* Cover the area */
+        transition: transform 0.3s ease;
+    
+        &:hover {
+          transform: scale(1.05); /* Slight zoom-in effect */
+        }
+      }
+    
+      .toure-info {
+        padding: 15px;
+        text-align: center;
+    
+        h3 {
+          font-size: 1.4rem;
+          font-weight: bold;
+          margin-bottom: 10px;
+          color: #333; /* Darker text for better readability */
+        }
+    
+        p {
+          font-size: 1rem;
+          color: #777;
+          margin-bottom: 15px;
+        }
+    
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 15px 0;
+    
+          li {
+            font-size: 0.9rem;
+            color: #555;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            i {
+              color: #007bff;
+              margin-right: 8px;
+            }
+          }
+        }
+    
+        .toure-price {
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: #27ae60; /* Green color for the price */
+          margin-bottom: 15px;
+        }
+    
+        .details-btn {
+          padding: 8px 20px;
+          background: linear-gradient(145deg, #007bff, #0056b3);
+          color: white;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 1rem;
+          transition: background 0.3s ease, transform 0.3s ease;
+    
+          &:hover {
+            background: linear-gradient(145deg, #0056b3, #003f7f);
+            transform: translateY(-3px);
+          }
+    
+          &:active {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+     
+  }
+}

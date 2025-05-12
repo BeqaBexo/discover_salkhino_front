@@ -1,0 +1,167 @@
+.layout {
+  padding: 90px 20px;
+  background: #fafafa;
+}
+
+.maran-container {
+  display: flex;
+  gap: 20px;
+}
+
+.filters-section {
+  width: 300px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+
+  .filter-group {
+    margin-bottom: 20px;
+
+    label {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #f8f8f8;
+      transition: all 0.3s ease;
+
+      &:focus {
+        border-color: #007bff;
+        background: #fff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+      }
+    }
+  }
+
+  .apply-filters-btn {
+    width: 100%;
+    padding: 12px;
+    background: #6b1d24;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #4f141b;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.maran-list-section {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+
+  .list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    h2 {
+      font-size: 1.8rem;
+      color: #222;
+    }
+
+    app-search-bar {
+      width: 50%;
+    }
+  }
+
+  .maran-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .maran-card {
+    background: #fffefc;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
+
+    .maran-image {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 16px;
+
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+        color: #611a1a;
+      }
+
+      .location,
+      .factory,
+      .phone {
+        font-size: 0.95rem;
+        color: #555;
+        margin: 3px 0;
+      }
+
+      .details-btn {
+        margin-top: 10px;
+        padding: 8px 14px;
+        font-size: 0.95rem;
+        border: none;
+        border-radius: 6px;
+        background: #8a1c2d;
+        color: #fff;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+          background: #5f131f;
+        }
+      }
+    }
+  }
+}
+
+// Responsive tweaks
+@media (max-width: 768px) {
+  .maran-container {
+    flex-direction: column;
+  }
+
+  .filters-section {
+    width: 100%;
+  }
+
+  .list-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  app-search-bar {
+    width: 100% !important;
+  }
+}

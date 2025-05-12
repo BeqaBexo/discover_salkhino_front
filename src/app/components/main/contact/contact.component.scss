@@ -1,0 +1,176 @@
+.layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 120px 20px 40px;
+  background: #fdfaf8;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.contact-wrapper {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* მარცხენა ბლოკი: საკონტაქტო ინფო */
+.contact-info {
+  flex: 1;
+  background: #fff5f0;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.07);
+  min-width: 300px;
+  max-width: 400px;
+
+  h3 {
+    color: #862633;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+    color: #444;
+
+    i {
+      color: #862633;
+      margin-right: 10px;
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover i {
+      transform: scale(1.2);
+    }
+
+    strong {
+      margin-right: 6px;
+      color: #862633;
+    }
+
+    a {
+      color: #862633;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #a73c4d;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* მარჯვენა ბლოკი: საკონტაქტო ფორმა */
+.contact-page {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.contact-form-card {
+  background: #ffffff;
+  padding: 30px 60px;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.7s ease-out;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #862633;
+    font-size: 28px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .form-group {
+    position: relative;
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      transition: 0.3s ease;
+      background: transparent;
+    }
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    label {
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      color: #777;
+      font-size: 16px;
+      background: #fff;
+      padding: 0 6px;
+      pointer-events: none;
+      transition: 0.3s ease;
+    }
+
+    input:focus + label,
+    input:not(:placeholder-shown) + label,
+    textarea:focus + label,
+    textarea:not(:placeholder-shown) + label {
+      top: -10px;
+      left: 10px;
+      font-size: 13px;
+      color: #862633;
+    }
+  }
+
+  button {
+    background-color: #862633;
+    color: white;
+    padding: 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #a83a4f;
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

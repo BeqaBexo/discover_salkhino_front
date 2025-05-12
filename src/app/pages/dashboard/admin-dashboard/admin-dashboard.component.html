@@ -1,0 +1,25 @@
+<!-- admin-dashboard.component.html -->
+
+<app-header></app-header>
+<div class="layout">
+
+<div class="tab-container">
+  <!-- Tabs -->
+  <ul class="tabs">
+    <li [class.active]="activeTab === 'transport'" (click)="setActiveTab('transport')">
+      <i class="fas fa-car"></i> ტრანსპორტი
+    </li>
+    <li [class.active]="activeTab === 'hotel'" (click)="setActiveTab('hotel')">
+      <i class="fas fa-hotel"></i> სასტუმრო
+    </li>
+    <!-- დაამატე დანარჩენი ტაბები საჭიროებისამებრ -->
+  </ul>
+
+  <!-- Content -->
+  <div class="content">
+    <ng-container *ngIf="activeTab === 'transport'">
+      <app-transport-view></app-transport-view>
+    </ng-container>
+  </div>
+</div>
+</div>

@@ -1,0 +1,19 @@
+<div class="login-container">
+  <h2>🔐 შესვლა</h2>
+
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <div class="form-group">
+      <label>მომხმარებელი:</label>
+      <input type="text" [(ngModel)]="username" name="username" required />
+    </div>
+
+    <div class="form-group">
+      <label>პაროლი:</label>
+      <input type="password" [(ngModel)]="password" name="password" required />
+    </div>
+
+    <button type="submit" [disabled]="!loginForm.form.valid">შესვლა</button>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </form>
+</div>

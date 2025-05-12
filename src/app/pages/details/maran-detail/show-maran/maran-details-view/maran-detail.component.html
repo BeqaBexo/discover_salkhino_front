@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<div class="maran-detail-card" *ngIf="maran">
+  <div class="header">
+    <h2>{{ maran.grapeVariety }}</h2>
+    <p class="date">{{ maran.harvestYear }} წელი</p>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" *ngIf="selectedImage">
+    <button class="lightbox-close" (click)="closeLightbox()">×</button>
+    <button class="lightbox-prev" (click)="previousImage()">‹</button>
+    <img [src]="'https://localhost:7237/uploads/' + selectedImage" class="lightbox-image" />
+    <button class="lightbox-next" (click)="nextImage()">›</button>
+  </div>
+
+  <!-- Image Gallery -->
+  <div class="gallery-container" *ngIf="maran?.imagePaths?.length">
+    <img *ngFor="let path of maran.imagePaths; let i = index"
+         [src]="'https://localhost:7237/uploads/' + path"
+         (click)="openLightbox(path, i)"
+         class="gallery-thumb"
+         alt="Grape Image"/>
+  </div>
+
+  <div class="maran-info">
+    <ul>
+      <li><strong>ქარხანა:</strong> {{ maran.factoryName }}</li>
+      <li><strong>ტელეფონი:</strong> {{ maran.phoneNumber }}</li>
+      <li><strong>ლოკაცია:</strong> {{ maran.location }}</li>
+      <li><strong>წონა:</strong> {{ maran.weightKg }} კგ</li>
+      <li><strong>ფასი კგ-ზე:</strong> {{ maran.pricePerKg }} ₾</li>
+    </ul>
+  </div>
+
+  <div class="maran-description">
+    <h3>აღწერა</h3>
+    <div class="description-box">
+      <p>{{ maran.description || 'აღწერა არ არის მითითებული.' }}</p>
+    </div>
+  </div>
+
+    <button class="back-btn" type="button" (click)="goBack()">⬅ დაბრუნება</button>
+</div>

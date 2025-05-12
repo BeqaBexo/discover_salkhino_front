@@ -1,0 +1,73 @@
+<app-header></app-header>
+
+<div class="tab-container">
+  <!-- Tabs -->
+  <ul class="tabs">
+    <li [class.active]="activeTab === 'toure'" (click)="setActiveTab('toure')">
+      <i class="fas fa-route"></i> ტური
+    </li>
+    <li [class.active]="activeTab === 'hotel'" (click)="setActiveTab('hotel')">
+      <i class="fas fa-hotel"></i> სასტუმრო
+    </li>
+    <li [class.active]="activeTab === 'maran'" (click)="setActiveTab('maran')">
+      <i class="fas fa-water"></i> მარანი
+    </li>
+    <li [class.active]="activeTab === 'transport'" (click)="setActiveTab('transport')">
+      <i class="fas fa-car"></i> ტრანსპორტი
+    </li>
+    <li [class.active]="activeTab === 'place'" (click)="setActiveTab('place')">
+      <i class="fas fa-monument"></i> ადგილი
+    </li>
+    <li [class.active]="activeTab === 'history'" (click)="setActiveTab('history')">
+      <i class="fas fa-book"></i> საინტერესო ამბები
+    </li>
+    <li [class.active]="activeTab === 'albom'" (click)="setActiveTab('albom')">
+      <i class="fas fa-image"></i> ალბომი
+    </li>
+    <li [class.active]="activeTab === 'forum'" (click)="setActiveTab('forum')">
+      <i class="fas fa-comments"></i> ფორუმი
+    </li>
+        <li [class.active]="activeTab === 'story'" (click)="setActiveTab('story')">
+      <i class="fas fa-comments"></i> სიახლები
+    </li>
+        <li [class.active]="activeTab === 'bannerslide'" (click)="setActiveTab('bannerslide')">
+      <i class="fas fa-comments"></i> ბანერის სლაიდი
+    </li>
+  </ul>
+
+  <!-- Content -->
+  <div class="content">
+
+    <ng-container *ngIf="activeTab === 'hotel'">
+      <app-add-hotel></app-add-hotel>
+    </ng-container>
+
+    <ng-container *ngIf="activeTab === 'maran'">
+      <app-add-maran></app-add-maran>
+    </ng-container>
+
+    <ng-container *ngIf="activeTab === 'transport'">
+      <app-add-transport></app-add-transport>
+    </ng-container>
+
+    <ng-container *ngIf="activeTab === 'history'">
+      <app-add-history></app-add-history>
+    </ng-container>
+
+    <ng-container *ngIf="activeTab === 'albom'">
+      <app-add-albom></app-add-albom>
+    </ng-container>
+
+    <ng-container *ngIf="activeTab === 'forum'">
+      <app-add-forum></app-add-forum>
+    </ng-container>
+
+    <ng-container *ngIf="activeTab === 'story'">
+      <app-add-story></app-add-story>
+    </ng-container>
+
+    <ng-container *ngIf="activeTab === 'bannerslide'">
+      <app-add-banner-slide></app-add-banner-slide>
+    </ng-container>
+  </div>
+</div>

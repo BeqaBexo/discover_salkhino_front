@@ -1,0 +1,84 @@
+<div class="layout">
+  <div class="transport-container">
+    <!-- Filters Section -->
+    <aside class="filters-section">
+      <div class="filter-group">
+        <label>ფასის დიაპაზონი:</label>
+        <input type="range" min="50" max="900" [(ngModel)]="priceRange" />
+        <span>{{ priceRange }} €</span>
+      </div>
+
+      <div class="filter-group">
+        <label>{{ translations.REGION }}</label>
+        <select [(ngModel)]="selectedRegion" class="form-control">
+          <option value="" disabled selected>{{ translations.CHOOSE_REGION }}</option>
+          <option>{{ translations.MARTVILI }}</option>
+          <option>{{ translations.SALKHINO }}</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>კატეგორიები:</label>
+        <ul>
+          <li *ngFor="let category of categories">
+            <input type="checkbox" [(ngModel)]="category.selected" />
+            {{ category.name }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="filter-group">
+        <label>{{ translations.RENTAL_TYPE }}</label>
+        <div class="checkbox-group">
+          <label>
+            <input type="checkbox" [(ngModel)]="selectedRentalType.withDriver" />
+            {{ translations.WITH_DRIVER }}
+          </label>
+          <label>
+            <input type="checkbox" [(ngModel)]="selectedRentalType.withoutDriver" />
+            {{ translations.WITHOUT_DRIVER }}
+          </label>
+        </div>
+      </div>
+
+      <button class="apply-filters-btn" (click)="filterCars()">ძიება</button>
+    </aside>
+
+    <!-- Car List Section -->
+    <section class="car-list-section">
+      <div class="list-header">
+        <h2>ავტომობილები</h2>
+        <app-search-bar
+          [placeholder]="'ავტომობილების ძიება (თანხა, დასახელება, წელი)'"
+          [searchQuery]="searchQuery"
+          (searchChange)="onSearchChange($event)">
+        </app-search-bar>
+      </div>
+
+      <!-- Car Card List -->
+      <div class="car-grid">
+        <div class="car-card" *ngFor="let car of carList">
+          <img [src]="car.imageUrl || 'assets/no-image.jpg'" alt="{{ car.model }}" class="car-image" />
+          <div class="car-info">
+            <h3>{{ car.manufacturer }}</h3>
+            <p>{{ car.category }}</p>
+            <ul>
+              <li><i class="fa fa-map-marker-alt"></i> {{ car.location }}</li>
+              <li><i class="fa fa-car-side"></i> {{ car.rentalType }}</li>
+              <li><i class="fa fa-gas-pump"></i> {{ car.fuel }}</li>
+            </ul>
+            <p class="car-price">{{ car.price }} €</p>
+            <button class="details-btn" [routerLink]="['/transport-details', car.id]">დეტალები</button>
+          </div>
+        </div>
+      </div>
+
+
+      <app-pagination
+        [items]="transports"
+        [itemsPerPageOptions]="[12, 48, 148]"
+        (paginatedItems)="onPageChange($event)">
+      </app-pagination>
+    </section>
+  </div>
+</div>

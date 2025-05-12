@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<div class="hotel-detail-card" *ngIf="hotel">
+  <div class="header">
+    <h2>{{ hotel.title }}</h2>
+    <p class="date">{{ hotel.dateTime | date:'longDate' }}</p>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" *ngIf="selectedImage">
+    <button class="lightbox-close" (click)="closeLightbox()">×</button>
+    <button class="lightbox-prev" (click)="previousImage()">‹</button>
+    <img [src]="'https://localhost:7237/uploads/' + selectedImage" class="lightbox-image" />
+    <button class="lightbox-next" (click)="nextImage()">›</button>
+  </div>
+
+  <!-- Gallery -->
+  <div class="gallery-container" *ngIf="hotel.imagePaths?.length">
+    <img
+      *ngFor="let path of hotel.imagePaths; let i = index"
+      [src]="'https://localhost:7237/uploads/' + path"
+      (click)="openLightbox(path, i)"
+      class="gallery-thumb"
+      alt="Hotel Photo"
+    />
+  </div>
+
+  <!-- Info -->
+  <div class="hotel-info">
+    <ul>
+      <li><strong>ფასი:</strong> {{ hotel.price }} ₾</li>
+      <li><strong>პრიორიტეტი:</strong> {{ hotel.weight }}</li>
+    </ul>
+  </div>
+
+  <div class="hotel-description">
+    <h3>აღწერა</h3>
+    <div class="description-box">
+      <p>{{ hotel.descrip || 'აღწერა არ არის მითითებული.' }}</p>
+    </div>
+  </div>
+
+    <button class="back-btn" type="button" (click)="goBack()">⬅ დაბრუნება</button>
+</div>

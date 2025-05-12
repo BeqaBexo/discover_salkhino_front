@@ -1,0 +1,25 @@
+<div class="albom-container">
+  <form [formGroup]="albomForm" (ngSubmit)="onSubmit()">
+    <h1 class="title">ალბომის დამატება</h1>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>სათაური</label>
+        <input type="text" formControlName="title" placeholder="მაგ. სალხინოს ხედები" />
+      </div>
+      <div class="form-group">
+        <label>აღწერა</label>
+        <textarea formControlName="description" rows="4" placeholder="დამატებითი აღწერა (არასავალდებულო)"></textarea>
+      </div>
+      <div class="form-group custom-file-input">
+        <label for="photo" class="file-label">
+          <i class="fas fa-upload"></i> ფოტოები
+        </label>
+        <input id="photo" type="file" multiple (change)="onFileSelected($event)" />
+        <span class="file-name">{{ fileNames || 'არცერთი ფოტო არ აირჩიეთ' }}</span>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-submit">დამატება</button>
+  </form>
+</div>

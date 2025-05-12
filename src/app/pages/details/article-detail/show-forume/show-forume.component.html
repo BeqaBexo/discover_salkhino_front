@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<div class="layout">
+  <div class="content">
+    <div class="articles-container">
+      <div *ngFor="let forum of displayedForums" class="article-card">
+        <div class="article-header">
+          <h2>{{ forum.title }}</h2>
+          <p class="region">{{ forum.region }}</p>
+        </div>
+
+        <div class="article-body" [ngClass]="{ 'expanded': forum.isExpanded }">
+          <p>{{ forum.summary }}</p>
+          <button class="read-more" *ngIf="!forum.isExpanded" (click)="expandArticle(forum)">
+            წაიკითხე მეტი
+          </button>
+          <button class="read-more" *ngIf="forum.isExpanded" (click)="collapseArticle(forum)">
+            შემცირება
+          </button>
+        </div>
+
+        <div class="article-footer">
+          <div class="engagement">
+            <span><i class="fas fa-heart"></i> {{ forum.likes }}</span>
+            <span><i class="fas fa-comment"></i> {{ forum.comments?.length || 0 }}</span>
+          </div>
+          <button (click)="toggleComments(forum.id)" class="toggle-comments-btn">
+            {{ forum.showComments ? 'კომენტარის დამალვა' : 'კომენტარის ნახვა' }}
+          </button>
+        </div>
+
+        <div class="comments-section" *ngIf="forum.showComments">
+          <div *ngFor="let comment of forum.comments" class="comment">
+            <p><strong>{{ comment.user }}:</strong> {{ comment.text }}</p>
+          </div>
+          <div class="add-comment">
+            <textarea [(ngModel)]="newComment[forum.id]" placeholder="დაწერე კომენტარი..."></textarea>
+            <button (click)="addComment(forum.id)">კომენტარის დამატება</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination Component -->
+    <app-pagination
+      [items]="forums"
+      [itemsPerPageOptions]="[5, 10, 25]"
+      (paginatedItems)="onPageChange($event)">
+    </app-pagination>
+  </div>
+</div>

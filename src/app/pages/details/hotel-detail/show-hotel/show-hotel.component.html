@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="layout">
+  <div class="hotel-container">
+
+    <!-- Filters Section -->
+    <aside class="filters-section">
+      <div class="filter-group">
+        <label>სათაური:</label>
+        <input
+          type="text"
+          [(ngModel)]="filterTitle"
+          class="form-control"
+          placeholder="მაგ. სასტუმრო სალხინო" />
+      </div>
+
+      <div class="filter-group">
+        <label>ფასი (₾):</label>
+        <input
+          type="number"
+          [(ngModel)]="filterPrice"
+          class="form-control"
+          placeholder="მაგ. 100" />
+      </div>
+
+      <button class="apply-filters-btn" (click)="filterHotels()">ძიება</button>
+    </aside>
+
+
+    <!-- სასტუმროების სია -->
+    <section class="hotel-list-section">
+      <div class="list-header">
+        <h2>🏨 სასტუმროები</h2>
+      </div>
+
+      <div class="hotel-grid">
+        <div class="hotel-card" *ngFor="let item of pagedHotels">
+          <img [src]="'https://localhost:7237/uploads/' + (item.filePath || 'default.jpg')" alt="{{ item.title }}" class="hotel-image" />
+          <div class="hotel-info">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.descrip }}</p>
+            <ul>
+              <li><i class="fas fa-euro-sign"></i> ფასი: {{ item.price }} ₾</li>
+            </ul>
+            <p class="hotel-price">₾ {{ item.price }}</p>
+            <button class="details-btn" [routerLink]="['/hotel-detail', item.id]">დეტალები</button>
+          </div>
+        </div>
+      </div>
+
+      <app-pagination
+        [items]="filteredHotels"
+        [itemsPerPageOptions]="[6, 12, 24]"
+        (paginatedItems)="onPageChange($event)">
+      </app-pagination>
+    </section>
+  </div>
+</div>

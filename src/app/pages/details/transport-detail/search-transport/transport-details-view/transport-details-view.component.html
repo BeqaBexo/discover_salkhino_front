@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<div class="transport-detail-card" *ngIf="transport">
+  <div class="header">
+    <h2>{{ transport.manufacturer }} {{ transport.model }}</h2>
+    <p class="date">{{ formatDate(transport.dateTime?.toString()) }}</p>
+  </div>
+
+  <!-- Lightbox Modal -->
+<div class="lightbox" *ngIf="selectedImage">
+  <button class="lightbox-close" (click)="closeLightbox()">×</button>
+  <button class="lightbox-prev" (click)="previousImage()">‹</button>
+  <img [src]="'https://localhost:7237/uploads/' + selectedImage" class="lightbox-image" />
+  <button class="lightbox-next" (click)="nextImage()">›</button>
+</div>
+
+
+  <!-- Gallery Thumbnails -->
+  <div class="gallery-container" *ngIf="transport?.imagePaths?.length">
+    <ng-container *ngFor="let path of transport.imagePaths; let i = index">
+      <img
+        [src]="'https://localhost:7237/uploads/' + path"
+        (click)="openLightbox(path, i)"
+        class="gallery-thumb"
+        alt="Transport Photo"
+      />
+    </ng-container>
+    
+  </div>
+
+  <div class="transport-info">
+    <ul>
+      <li><strong>კატეგორია:</strong> {{ transport.category }}</li>
+      <li><strong>ფასი:</strong> {{ transport.price }} ₾</li>
+      <li><strong>წელი:</strong> {{ transport.year }}</li>
+      <li><strong>საწვავი:</strong> {{ transport.fuel }}</li>
+      <li><strong>მდებარეობა:</strong> {{ transport.location }}</li>
+      <li><strong>ქირავნობის ტიპი:</strong> {{ transport.rentalType }}</li>
+      <li><strong>საერთო წონა:</strong> {{ transport.weight }}</li>
+    </ul>
+  </div>
+      <button class="back-btn" type="button" (click)="goBack()">⬅ დაბრუნება</button>
+
+</div>

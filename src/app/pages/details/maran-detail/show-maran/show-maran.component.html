@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="layout">
+  <div class="maran-container">
+
+    <!-- Filters Section -->
+    <aside class="filters-section">
+      <div class="filter-group">
+        <label>ყურძნის ჯიში:</label>
+        <select [(ngModel)]="selectedGrape" class="form-control">
+          <option value="">ყველა</option>
+          <option *ngFor="let grape of grapeVarieties" [value]="grape">{{ grape }}</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>ლოკაცია:</label>
+        <select [(ngModel)]="selectedLocation" class="form-control">
+          <option value="">ყველა</option>
+          <option *ngFor="let loc of locations" [value]="loc">{{ loc }}</option>
+        </select>
+      </div>
+
+      <button class="apply-filters-btn" (click)="filterMarans()">ძიება</button>
+    </aside>
+
+    <!-- Maran List Section -->
+    <section class="maran-list-section">
+      <div class="list-header">
+        <h2>📦 მარანები</h2>
+        <app-search-bar
+          [placeholder]="'მოძებნე (ჯიში, ქარხანა)'"
+          [searchQuery]="searchQuery"
+          (searchChange)="onSearchChange($event)">
+        </app-search-bar>
+      </div>
+
+      <div class="maran-grid">
+        <div class="maran-card" *ngFor="let item of pagedMarans">
+          <img [src]="item.imageUrl" alt="Grape Image" class="maran-image" />
+          <div class="card-body">
+            <h3>{{ item.grapeVariety }}</h3>
+            <p class="location">📍 {{ item.location }}</p>
+            <p class="factory">🏭 {{ item.factoryName }}</p>
+            <p class="phone">📞 {{ item.phoneNumber }}</p>
+            <button class="details-btn" [routerLink]="['/maran-detail', item.id]">დეტალები</button>
+          </div>
+        </div>
+      </div>
+
+      <app-pagination
+        [items]="filteredMarans"
+        [itemsPerPageOptions]="[6, 12, 24]"
+        (paginatedItems)="onPageChange($event)">
+      </app-pagination>
+    </section>
+  </div>
+</div>

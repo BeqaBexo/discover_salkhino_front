@@ -1,0 +1,31 @@
+
+
+
+.layout {
+  padding-top: 130px;
+}
+
+.photo-banner {
+  display: flex; /* Center align the banner content */
+  justify-content: center; /* Ensure all child elements are horizontally centered */
+  align-items: center; /* Ensure vertical alignment */
+  width: 100%;
+  max-width: 1600px; /* Limit the width of the banner */
+  margin: 0 auto; /* Center the banner section on the page */
+  padding: 20px; /* Add spacing inside the banner container */
+
+  app-banner {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow for visual appeal */
+  }
+}
+
+.scrollable-boxes {
+    position: relative; /* Allows child elements to move with the page */
+    width: 100%; /* Full width of the layout */
+    height: auto; /* Adjusts height based on content */
+  }
+  

@@ -1,0 +1,152 @@
+.hotel-container {
+  padding: 30px;
+  max-width: 900px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', sans-serif;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #f7f7f7);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  animation: fadeInSlide 0.5s ease;
+
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    color: #6b1c27;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    margin-bottom: 25px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      transition: border 0.3s ease, box-shadow 0.3s ease;
+      background: #fff;
+
+      &:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
+        outline: none;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .custom-file-input {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      .file-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        background: #6b1c27;
+        color: #fff;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        i {
+          font-size: 1.2rem;
+        }
+
+        &:hover {
+          background: #50131b;
+        }
+      }
+
+      .file-name {
+        font-size: 0.95rem;
+        color: #555;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 60%;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+    }
+  }
+
+  .btn-submit {
+    display: block;
+    margin: 25px auto 0;
+    padding: 12px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    &:disabled {
+      background-color: #aaa;
+      cursor: not-allowed;
+    }
+  }
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hotel-container {
+    padding: 20px;
+  }
+
+  .form-grid {
+    gap: 20px;
+  }
+
+  .btn-submit {
+    width: 100%;
+  }
+}

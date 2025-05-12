@@ -1,0 +1,82 @@
+<div class="transport-container">
+    <form [formGroup]="transportForm" (ngSubmit)="onSubmit()">
+      <h1 class="title">ტრანსპორტის დამატება</h1>
+  
+      <!-- Grid Layout -->
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="manufacturer">მწარმოებელი</label>
+          <input id="manufacturer" formControlName="manufacturer" type="text" />
+        </div>
+        <div class="form-group">
+          <label for="model">მოდელი</label>
+          <input id="model" formControlName="model" type="text" />
+        </div>
+        <div class="form-group">
+          <label>{{ translations['TRANSPORT_CATEGORY'] }}</label>
+          <select formControlName="category" class="form-control">
+            <option value="" disabled selected>{{ translations['CHOOSE_CATEGORY'] }}</option>
+            <option value="SEDAN">{{ translations['SEDAN'] }}</option>
+            <option value="JEEP">{{ translations['JEEP'] }}</option>
+            <option value="COUPE">{{ translations['COUPE'] }}</option>
+          </select>    
+        </div>
+        <div class="form-group">
+          <label for="price">თანხა</label>
+          <input id="price" formControlName="price" type="number" />
+        </div>
+        <div class="form-group">
+          <label for="year">წელი</label>
+          <input id="year" formControlName="year" type="number" />
+        </div>
+        <div class="form-group">
+          <label>{{ translations['FUEL'] }}</label>
+          <select formControlName="fuel" class="form-control">
+            <option value="" disabled selected>{{ translations['CHOOSE_TYPE'] }}</option>
+            <option value="GASOLINE">{{ translations['GASOLINE'] }}</option>
+            <option value="DIESEL">{{ translations['DIESEL'] }}</option>
+            <option value="ELECTRIC">{{ translations['ELECTRIC'] }}</option>
+          </select>     
+        </div>
+        <div class="form-group">
+          <label>{{ translations.REGION }}</label>
+          <select formControlName="location" class="form-control">
+            <option value="" disabled selected>{{ translations.CHOOSE_REGION }}</option>
+            <option value="MARTVILI">{{ translations.MARTVILI }}</option>
+            <option value="SALKHINO">{{ translations.SALKHINO }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>{{ translations.RENTAL_TYPE }}</label>
+          <select formControlName="rentalType" class="form-control">
+            <option value="" disabled selected>{{ translations.CHOOSE_TYPE }}</option>
+            <option value="WITH_DRIVER">{{ translations.WITH_DRIVER }}</option>
+            <option value="WITHOUT_DRIVER">{{ translations.WITHOUT_DRIVER }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>{{ translations.PRIORITY_TYPE }}</label>
+          <select formControlName="weight" class="form-control">
+            <option value="" disabled selected>{{ translations.CHOOSE_PRIORITY }}</option>
+            <option value="VIP">{{ translations.VIP }}</option>
+            <option value="VIPPLUS">{{ translations.VIPPLUS }}</option>
+            <option value="STANDART">{{ translations.STANDART }}</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="photo">სურათი</label>
+        <div class="form-group custom-file-input">
+          <label for="photo" class="file-label">
+            <i class="fas fa-upload"></i> ატვირთე ფოტო
+          </label>
+          <input id="photo" type="file" (change)="onFileSelected($event)" />
+          <span class="file-name">{{ selectedFile || 'ცარიელია' }}</span>
+        </div>
+      </div>
+  
+      <button type="submit" class="btn-submit">დამატება</button>
+    </form>
+  </div>
+  

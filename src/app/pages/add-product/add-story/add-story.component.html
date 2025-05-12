@@ -1,0 +1,32 @@
+<div class="story-container">
+  <form [formGroup]="storyForm" (ngSubmit)="onSubmit()">
+    <h1 class="title">ისტორიის დამატება</h1>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>სათაური</label>
+        <input type="text" formControlName="titleText" placeholder="მაგ. ოჯალეში" />
+      </div>
+
+      <div class="form-group">
+        <label>მოკლე შინაარსი</label>
+        <textarea formControlName="summaryText" rows="3" placeholder="მოკლე აღწერა"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>სრული ტექსტი</label>
+        <textarea formControlName="fullText" rows="6" placeholder="დაწვრილებით"></textarea>
+      </div>
+
+      <div class="form-group custom-file-input">
+        <label for="photo" class="file-label">
+          <i class="fas fa-upload"></i> ფოტოები
+        </label>
+        <input id="photo" type="file" multiple (change)="onFileSelected($event)" />
+        <span class="file-name">{{ fileNames || 'არცერთი ფოტო არ აირჩიეთ' }}</span>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-submit">დამატება</button>
+  </form>
+</div>

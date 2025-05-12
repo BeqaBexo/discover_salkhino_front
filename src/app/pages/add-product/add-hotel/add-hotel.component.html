@@ -1,0 +1,45 @@
+<div class="hotel-container">
+  <form [formGroup]="hotelForm" (ngSubmit)="onSubmit()">
+    <h1 class="title">სასტუმროს დამატება</h1>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="title">სათაური</label>
+        <input id="title" formControlName="title" type="text" />
+      </div>
+
+      <div class="form-group">
+        <label for="price">ფასი</label>
+        <input id="price" formControlName="price" type="number" />
+      </div>
+
+      <div class="form-group">
+        <label for="weight">პრიორიტეტი</label>
+        <select formControlName="weight" class="form-control">
+          <option value="" disabled selected>აირჩიე პრიორიტეტი</option>
+          <option value="VIP">VIP</option>
+          <option value="VIPPLUS">VIPPLUS</option>
+          <option value="STANDART">STANDART</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="descrip">აღწერა</label>
+      <textarea id="descrip" formControlName="descrip" rows="4" placeholder="დამატებითი ინფორმაცია"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="photo">სურათი</label>
+      <div class="form-group custom-file-input">
+        <label for="photo" class="file-label">
+          <i class="fas fa-upload"></i> ატვირთე ფოტო
+        </label>
+        <input id="photo" type="file" (change)="onFileSelected($event)" />
+        <span class="file-name">{{ selectedFileName || 'ცარიელია' }}</span>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-submit">დამატება</button>
+  </form>
+</div>

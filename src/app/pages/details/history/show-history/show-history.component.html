@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="layout">
+<section class="history-section">
+  <div class="history-card" 
+       *ngFor="let h of histories; let i = index"
+       [ngClass]="i % 2 === 0 ? 'left' : 'right'">
+       
+    <div class="header">
+      <img [src]="h.avatarUrl" class="avatar" />
+      <div>
+        <h3>{{ h.title }}</h3>
+        <p class="narrator">მთხრობელი: {{ h.narrator }}</p>
+        <p class="updated">ინფორმაცია განახლდა: {{ h.updated }}</p>
+      </div>
+    </div>
+
+    <div class="summary">
+      {{ h.summary }}
+    </div>
+
+    <div class="full-text" *ngIf="expandedId === h.id">
+      {{ h.fullText }}
+    </div>
+
+    <button (click)="toggleExpand(h.id)" class="btn-more">
+      {{ expandedId === h.id ? 'დაკეცვა' : 'ვრცლად' }}
+    </button>
+  </div>
+</section>
+
+
+</div>

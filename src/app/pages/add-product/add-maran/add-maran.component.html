@@ -1,0 +1,55 @@
+<div class="maran-form-container">
+  <form [formGroup]="maranForm" (ngSubmit)="onSubmit()">
+    <h2>ახალი მარანის დამატება</h2>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="grapeVariety">ყურძნის ჯიში</label>
+        <input id="grapeVariety" formControlName="grapeVariety" type="text" />
+      </div>
+
+      <div class="form-group">
+        <label for="factoryName">ქარხნის დასახელება</label>
+        <input id="factoryName" formControlName="factoryName" type="text" />
+      </div>
+
+      <div class="form-group">
+        <label for="phoneNumber">მობ. ნომერი</label>
+        <input id="phoneNumber" formControlName="phoneNumber" type="text" />
+      </div>
+
+      <div class="form-group">
+        <label for="location">მდებარეობა</label>
+        <input id="location" formControlName="location" type="text" />
+      </div>
+
+      <div class="form-group">
+        <label for="harvestYear">წელი</label>
+        <input id="harvestYear" formControlName="harvestYear" type="number" />
+      </div>
+
+      <div class="form-group">
+        <label for="weightKg">წონა (კგ)</label>
+        <input id="weightKg" formControlName="weightKg" type="number" />
+      </div>
+
+      <div class="form-group">
+        <label for="pricePerKg">ფასი კგ-ზე</label>
+        <input id="pricePerKg" formControlName="pricePerKg" type="number" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">აღწერა</label>
+      <textarea id="description" formControlName="description" rows="4"></textarea>
+    </div>
+
+    <div class="form-group file-input">
+      <label for="images">ფოტოების ატვირთვა</label>
+      <input type="file" multiple (change)="onFileSelected($event)" />
+      <span>{{ fileNames || 'არჩევა არ არის' }}</span>
+    </div>
+
+    <button type="submit" class="submit-btn">დამატება</button>
+  </form>
+</div>

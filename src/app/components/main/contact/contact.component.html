@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<div class="layout">
+  <div class="contact-wrapper">
+
+    <!-- 📍 Left: Contact Info -->
+    <div class="contact-info">
+      <h3>საკონტაქტო ინფორმაცია</h3>
+      <p><i class="fas fa-map-marker-alt"></i> <strong>მისამართი:</strong> მარტვილის რაიონი, სოფელი სალხინო</p>
+      <p><i class="fas fa-phone"></i> <strong>ტელეფონი:</strong> +995 598 40 19 97</p>
+      <p>
+        <i class="fas fa-envelope"></i> 
+        <strong>ელფოსტა:</strong> 
+        <a href="mailto:discoverysalkhino&#64;gmail.ge">discoverysalkhino&#64;gmail.ge</a>
+      </p>
+
+    </div>
+    
+
+    <!-- ✏️ Right: Contact Form -->
+    <div class="contact-page">
+  <div class="contact-form-card">
+    <h2>დაგვიკავშირდით</h2>
+    <form (ngSubmit)="submitForm()" #contactForm="ngForm">
+      <div class="form-group">
+        <input type="text" name="name" [(ngModel)]="name" required />
+        <label>სახელი</label>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" [(ngModel)]="email" required />
+        <label>ელ.ფოსტა</label>
+      </div>
+      <div class="form-group">
+        <textarea name="message" [(ngModel)]="message" rows="4" required></textarea>
+        <label>შეტყობინება</label>
+      </div>
+      <button type="submit" [disabled]="!contactForm.valid">გაგზავნა</button>
+    </form>
+  </div>
+</div>
+
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="story-section-wrapper">
+  <!-- Story list -->
+  <div
+    class="maran-card animate-in"
+    *ngFor="let story of stories"
+    #cardRef
+  >
+    <div class="maran-flex">
+      <img
+        [src]="story.imageUrl"
+        [alt]="story.titleText"
+        class="main-image"
+        (error)="story.imageUrl = 'assets/no-image.jpg'"
+      />
+
+      <div class="text-column">
+        <h2 class="title" [innerHTML]="getStyledTitle(story.titleText)"></h2>
+
+        <p class="text-content">
+          {{ expandedId === story.id ? story.fullText : story.summaryText }}
+        </p>
+
+        <button
+          class="btn-more"
+          (click)="toggleExpand(story.id)"
+        >
+          {{ expandedId === story.id ? 'დაკეცვა' : 'ვრცლად' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

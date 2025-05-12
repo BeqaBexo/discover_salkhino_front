@@ -1,0 +1,14 @@
+<div class="view-switcher">
+  <button [class.active]="viewMode === 'add'" (click)="switchToAdd()">➕ დამატება</button>
+  <button [class.active]="viewMode === 'list'" (click)="viewMode = 'list'">📋 სია</button>
+</div>
+
+<div class="view-content">
+  <ng-container *ngIf="viewMode === 'add'">
+    <app-add-transport [transportToEdit]="selectedTransport"></app-add-transport>
+  </ng-container>
+
+  <ng-container *ngIf="viewMode === 'list'">
+    <app-transport-list (edit)="editTransport($event)"></app-transport-list>
+  </ng-container>
+</div>

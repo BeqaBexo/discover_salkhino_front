@@ -1,0 +1,29 @@
+<div class="transport-list">
+  <table>
+    <thead>
+      <tr>
+        <th>მწარმოებელი</th>
+        <th>მოდელი</th>
+        <th>წელი</th>
+        <th>ფასი</th>
+        <th>ქმედებები</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of transports">
+        <td>{{ item.manufacturer }}</td>
+        <td>{{ item.model }}</td>
+        <td>{{ item.year }}</td>
+        <td>{{ item.price }} ₾</td>
+        <td>
+          <button (click)="editTransport(item)">
+            <i class="fas fa-edit"></i> რედაქტირება
+          </button>
+          <button (click)="deleteTransport(item.id)">
+            <i class="fas fa-trash-alt"></i> წაშლა
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

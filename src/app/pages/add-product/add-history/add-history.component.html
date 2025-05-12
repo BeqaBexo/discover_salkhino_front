@@ -1,0 +1,25 @@
+<div class="add-history-container">
+  <h2>ისტორიის დამატება</h2>
+
+  <form [formGroup]="historyForm" (ngSubmit)="onSubmit()">
+    <label>სათაური</label>
+    <input type="text" formControlName="title" />
+
+    <label>მთხრობელის სახელი</label>
+    <input type="text" formControlName="narratorName" />
+
+    <label>მთხრობელის გვარი</label>
+    <input type="text" formControlName="narratorSurname" />
+
+    <label>მთხრობელის ლოგო (png)</label>
+    <input type="file" accept="image/png" (change)="onAvatarSelected($event)" />
+
+    <label>მოკლე აღწერა (max 1000 სიმბოლო)</label>
+    <textarea formControlName="summary" rows="4"></textarea>
+
+    <label>სრული ტექსტი</label>
+    <textarea formControlName="fullText" rows="8"></textarea>
+
+    <button type="submit">დამატება</button>
+  </form>
+</div>

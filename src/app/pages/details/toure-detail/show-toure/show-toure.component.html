@@ -1,0 +1,32 @@
+<div class="toure-container">
+    <aside class="filters-section">
+      
+    </aside>
+  
+    <section class="toure-list-section">
+      <div class="list-header">
+        <h2>სასტუმროები</h2>
+      </div>
+  
+      <div class="toure-toures">
+        <div class="toure-card" *ngFor="let toure of displayedToures">
+      
+          <!-- Wine Image -->
+          <img [src]="" alt="{{ toure.title }}" class="toure-image" />
+      
+          <!-- Wine Info -->
+          <div class="toure-info">
+            <h3>{{ toure.title }}</h3>
+            <p>{{ toure.descrip }}</p>
+            <ul>
+              <li><i class="fa fa-building"></i> {{ toure.price }}</li>
+            </ul>
+            <p class="toure-price">{{ toure.price }} €</p>
+            <button class="details-btn">Details</button>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+  </div>
+  

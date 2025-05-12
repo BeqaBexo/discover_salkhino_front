@@ -1,0 +1,8 @@
+<div class="search-container">
+  <input
+    type="text"
+    [placeholder]="placeholder"
+    [(ngModel)]="internalSearch"
+    (ngModelChange)="onInputChange()" />
+  <i class="fa fa-search" (click)="onSearchClick()"></i>
+</div>

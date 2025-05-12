@@ -1,0 +1,14 @@
+<app-header></app-header>
+
+<div class="layout">
+  <div class="content">
+    <div class="places-container">
+      <div *ngFor="let place of displayedPlaces" class="place-card">
+        <div class="place-header">
+          <h2>{{ place.title }}</h2>
+          <p class="shortDescrip">{{ place.shortDescrip }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

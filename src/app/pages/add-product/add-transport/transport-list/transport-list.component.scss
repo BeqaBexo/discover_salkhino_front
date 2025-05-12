@@ -1,0 +1,80 @@
+/* transport-list.component.scss */
+
+.transport-list {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    overflow: hidden;
+
+    thead {
+      background-color: #1a8e5f;
+      color: white;
+
+      th {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        font-size: 1rem;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #ddd;
+        transition: background 0.3s;
+
+        &:hover {
+          background-color: #f9f9f9;
+        }
+
+        td {
+          padding: 0.75rem 1rem;
+          font-size: 0.95rem;
+          vertical-align: middle;
+        }
+
+        td:last-child {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    margin-right: 6px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    i {
+      font-size: 1rem;
+    }
+
+    &[title='რედაქტირება'] {
+      background-color: #007bff;
+      color: white;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+
+    &[title='წაშლა'] {
+      background-color: #dc3545;
+      color: white;
+
+      &:hover {
+        background-color: #b52a36;
+      }
+    }
+  }
+}

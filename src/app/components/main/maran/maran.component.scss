@@ -1,0 +1,120 @@
+.story-section-wrapper {
+  padding: 3rem 0;
+  margin-top: 2rem;
+}
+
+/* თითოეულ ბარათზე წითელი ხაზები მარცხნივ და მარჯვნივ */
+.maran-card {
+  background: #fffefc;
+  padding: 3rem;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  width: 60vw;
+  max-width: 1400px;
+  margin: auto;
+  position: relative;
+
+  &::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 7px;
+    background-color: #fda85d;
+    z-index: 1;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+}
+
+/* ბარათებს შორის დაშორება */
+.maran-card:not(:last-child) {
+  margin-bottom: 6rem;
+}
+
+.maran-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.main-image {
+  width: 400px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.text-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: #631c27;
+
+  .styled-letter {
+    color: #842029;
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+  }
+}
+
+.text-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
+
+  &::first-letter {
+    font-size: 1.6rem;
+    color: #842029;
+    font-weight: bold;
+    line-height: 1;
+  }
+}
+
+.btn-more {
+  margin-top: 1.5rem;
+  background: #F1D58B;
+  color: black;
+  border: none;
+  padding: 10px 24px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+
+  &:hover {
+    background: #a89c7a;
+  }
+}
+
+/* ✅ მობილურზე სვეტურად */
+@media (max-width: 768px) {
+  .maran-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-column {
+    align-items: center;
+    text-align: center;
+  }
+
+  .main-image {
+    width: 100%;
+    max-width: 360px;
+  }
+}

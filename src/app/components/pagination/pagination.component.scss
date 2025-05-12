@@ -1,0 +1,82 @@
+.pagination-container {
+    display: flex;
+    justify-content: center; /* Center-align all elements */
+    align-items: center; /* Vertically align all elements */
+    gap: 20px; /* Add spacing between objects */
+    padding: 12px 20px;
+    margin: 20px 0;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  
+    /* Common label and select styling */
+    label {
+      font-size: 1.0rem;
+      font-weight: bold;
+      color: #333;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  
+    select {
+      padding: 6px 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      background: #fff;
+      color: #555;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  
+      &:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        outline: none;
+      }
+    }
+  
+    /* Pagination controls styling */
+    .pagination-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  
+      span {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #444;
+      }
+  
+      button {
+        padding: 6px 12px;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+        transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  
+        &:hover {
+          background: #0056b3;
+          box-shadow: 0 4px 8px rgba(0, 86, 179, 0.3);
+          transform: translateY(-2px);
+        }
+  
+        &:active {
+          background: #00448a;
+          box-shadow: 0 2px 4px rgba(0, 68, 138, 0.3);
+          transform: translateY(0);
+        }
+  
+        &:disabled {
+          background: #ccc;
+          color: #666;
+          cursor: not-allowed;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+  
