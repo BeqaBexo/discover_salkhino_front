@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from "../../../../../components/header/header.component";
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { environment } from '../../../../../../environments/environment';
+
 
 @Component({
   selector: 'app-maran-detail',
@@ -43,7 +45,7 @@ export class MaranDetailViewComponent implements OnInit {
             ...data,
             imagePaths: data.imagePaths || [],
             imageUrl: data.filePath
-              ? `https://localhost:7237/uploads/${data.filePath}`
+              ? `${environment.apiUrl}/uploads/${data.filePath}` 
               : 'assets/no-image.jpg'
           };
         },

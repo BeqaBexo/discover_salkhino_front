@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Forum, ForumComment, Image } from '../add-product-service/add-service.model';
+import { environment } from '../../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ForumService {
 
-  private forumUrl: string = 'https://localhost:7237/api/Forum';
-  private forumCommenlUrl: string = 'https://localhost:7237/api/ForumComent';
-  private imageUrl: string = 'https://localhost:7237/api/Image';
+  private forumUrl: string = `${environment.apiUrl}/api/Forum`; 
+  private forumCommenlUrl: string = `${environment.apiUrl}/api/ForumComment`; 
+  private imageUrl: string = `${environment.apiUrl}/api/Image`; 
 
 
   constructor(private myhttp: HttpClient) {}

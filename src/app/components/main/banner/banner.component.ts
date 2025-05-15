@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BannerSlideService } from './banner-slide.service';
 import { Subscription, interval } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-banner',
@@ -21,7 +22,7 @@ export class BannerComponent implements OnInit, OnDestroy {
     this.bannerSlideService.getAllBannerSlides().subscribe(data => {
       this.slides = data.map(item => ({
         image: item.filePath
-          ? `https://localhost:7237/uploads/${item.filePath}`
+          ? `${environment.apiUrl}/uploads/${item.filePath}` 
           : 'assets/no-image.jpg',
         title: item.titleText,
         description: item.summaryText

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TranslateTransp } from './service.model';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import { TranslateTransp } from './service.model';
 export class Service 
 {
 
-  private dictionaryUrl: string = 'https://localhost:7237/api/Dictionary';
+  private dictionaryUrl: string = `${environment.apiUrl}/api/Dictionary`; 
 
 
     constructor(private myhttp: HttpClient) {}

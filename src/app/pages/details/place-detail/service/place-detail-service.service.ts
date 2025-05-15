@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Place, TranslatePlace } from './place-detail-service.model';
+import { environment } from '../../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlaceService {
 
-placeUrl:string='https://localhost:7237/api/Place';
-private dictionaryUrl: string = 'https://localhost:7237/api/Dictionary';
+placeUrl:string=`${environment.apiUrl}/api/Place`; 
+private dictionaryUrl: string = `${environment.apiUrl}/api/Dictionary`; 
 
   
   listPlace: Place[] = [];

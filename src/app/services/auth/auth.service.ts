@@ -5,10 +5,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, timer, Subscription } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
+import { environment } from '../../../environments/environment';
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'https://localhost:7237/api/auth';
+  private baseUrl = `${environment.apiUrl}/api/Auth`; 
   private inactivityTimeout = 3 * 60 * 1000; // 3 minutes
   private inactivityTimer?: Subscription;
 

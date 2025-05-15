@@ -8,6 +8,8 @@ import { Service } from '../../../share/service.service';
 import { TransportService } from '../service/transport-detail-service.service';
 import { RouterModule } from '@angular/router';
 import { Transport } from '../service/transport-detail-service.model';
+import { environment } from '../../../../../environments/environment';
+
 
 @Component({
   selector: 'app-search-car',
@@ -61,7 +63,9 @@ export class Searchtransportomponent implements OnInit {
           const firstImage = Array.isArray(t.imagePaths) ? t.imagePaths[0] : t.filePath;
           return {
             ...t,
-            imageUrl: firstImage ? `https://localhost:7237/uploads/${firstImage}` : 'assets/no-image.jpg'
+            imageUrl: firstImage ?
+             `${environment.apiUrl}/uploads/${firstImage}` 
+             : 'assets/no-image.jpg'
           };
         });
 

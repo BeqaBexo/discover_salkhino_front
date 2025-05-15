@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../../../environments/environment';
+
 
 export interface HistoryItem {
   id: number;
@@ -16,7 +18,7 @@ export interface HistoryItem {
   providedIn: 'root'
 })
 export class HistoryService {
-  private apiUrl = 'https://localhost:7237/api/History';
+  private apiUrl = `${environment.apiUrl}/api/History`; 
 
   constructor(private http: HttpClient) {}
 

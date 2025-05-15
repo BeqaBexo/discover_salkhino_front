@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Transport } from './transport-detail-service.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransportService {
 
-  transportUrl:string='https://localhost:7237/api/Transport';
+  transportUrl:string=`${environment.apiUrl}/api/Transport`; 
   
   listTransport: Transport[] = [];
      

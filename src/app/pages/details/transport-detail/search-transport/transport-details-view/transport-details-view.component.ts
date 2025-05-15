@@ -6,6 +6,8 @@ import { TransportService } from '../../service/transport-detail-service.service
 import { HeaderComponent } from "../../../../../components/header/header.component";
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { environment } from '../../../../../../environments/environment';
+
 
 @Component({
   selector: 'app-transport-details-view',
@@ -40,7 +42,9 @@ export class TransportDetailsViewComponent implements OnInit {
         next: (res) => {
           this.transport = {
             ...res,
-            imageUrl: res.filePath ? `https://localhost:7237/uploads/${res.filePath}` : 'assets/no-image.jpg'
+            imageUrl: res.filePath ? 
+            `${environment.apiUrl}/uploads/${res.filePath}` 
+            : 'assets/no-image.jpg'
           };
         },
         error: (err) => console.error('Transport not found:', err)

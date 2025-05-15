@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TranslateToure ,Toure } from './toure-detail-service.model';
+import { environment } from '../../../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ToureDetailService {
 
-  toureUrl: string='https://localhost:7237/api/Toure';
-  private dictionaryUrl: string = 'https://localhost:7237/api/Dictionary';
+  toureUrl: string=`${environment.apiUrl}/api/Toure`; 
+  private dictionaryUrl: string = `${environment.apiUrl}/api/Dictionary`; 
     
       
       listToure: Toure[] = [];   

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { ForumComment, Forum } from './forum-service.model';
 import { Observable } from 'rxjs';
-
+import { environment } from '../../../../environments/environment';
 import { inject, Injectable} from '@angular/core';
 
 
@@ -13,8 +13,8 @@ export class ForumService {
 
   constructor(private myhttp: HttpClient) { }
 
-  forumCommentUrl:string='https://localhost:7237/api/ForumComment';
-  forumUrl:string='https://localhost:7237/api/Forum';
+  forumCommentUrl:string=`${environment.apiUrl}/api/ForumComment`; 
+  forumUrl:string=`${environment.apiUrl}/api/Forum`; 
  
 
 

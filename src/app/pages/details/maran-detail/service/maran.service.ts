@@ -2,12 +2,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MaranService {
-  private apiUrl = 'https://localhost:7237/api/Maran';
+  private apiUrl = `${environment.apiUrl}/api/Maran`; 
 
   constructor(private http: HttpClient) {}
 

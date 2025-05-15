@@ -9,6 +9,8 @@ import {
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { StoryService } from './story.service';
+import { environment } from '../../../../environments/environment';
+
 
 @Component({
   selector: 'app-maran',
@@ -54,7 +56,7 @@ export class MaranComponent implements OnInit, AfterViewInit {
           return {
             ...item,
             imageUrl: firstImage
-              ? `https://localhost:7237/uploads/${firstImage}`
+              ? `${environment.apiUrl}/uploads/${firstImage}`    
               : 'assets/no-image.jpg'
           };
         });

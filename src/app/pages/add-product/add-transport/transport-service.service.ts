@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Transport, TransportDetail, Image, TranslateTransp } from '../add-product-service/add-service.model';
-
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransportService {
 
-  private baseUrl: string = 'https://localhost:7237/api';
+  private baseUrl: string = `${environment.apiUrl}/api`; 
 
   private transportUrl: string = `${this.baseUrl}/Transport`;
   private transportDetailUrl: string = `${this.baseUrl}/TransportDetail`;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlbomService } from '../service/albom.service';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from "../../../../components/header/header.component";
+import { environment } from '../../../../../environments/environment';
 
 
 @Component({
@@ -39,7 +40,7 @@ export class ShowAlbomComponent implements OnInit {
           return {
             ...item,
             imageUrl: firstImage
-              ? `https://localhost:7237/uploads/${firstImage}`
+              ? `${environment.apiUrl}/uploads/${firstImage}` 
               : 'assets/no-image.jpg'
           };
         });

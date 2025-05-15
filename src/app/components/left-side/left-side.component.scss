@@ -19,7 +19,7 @@
     transition: transform 0.4s ease-in-out;
   }
 
-   &:hover {
+  &:hover {
     transform: translateY(-50%) scale(1.05);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
 
@@ -27,17 +27,14 @@
       transform: scale(1.1);
     }
   }
-
 }
 
 .social-icons-banner {
   position: fixed;
-  background-color: none;
   top: calc(40% + 270px); // ქვემოთ ჩამოწევა ფოტოს მიხედვით
   left: 2%;
   width: 160px;
   padding: 16px 0;
-  //background: linear-gradient(135deg, #f5f7fa, #d3dce8);
   border-radius: 20px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   z-index: 11;
@@ -47,7 +44,7 @@
   gap: 20px;
   transition: transform 0.4s ease-in-out;
 
-     &:hover {
+  &:hover {
     transform: translateY(10%) scale(1.05);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
 
@@ -86,8 +83,42 @@
 }
 
 @media (max-width: 768px) {
-  .left-slide-show,
+  .left-slide-show {
+    width: 120px;  // ამოაქციე ზომები მობილურისთვის
+    height: 400px;
+    top: 30%;
+  }
+
   .social-icons-banner {
-    display: none;
+    top: calc(30% + 200px); // მობილურ მოწყობილობაზე ქვემოთ ცოტა დავწევ
+    width: 120px;
+    gap: 15px;
+    padding: 12px 0;
+  }
+
+  .icon {
+    width: 35px;  // პატარა ზომები მობილურისთვის
+    height: 35px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-slide-show {
+    width: 100px;
+    height: 350px;
+  }
+
+  .social-icons-banner {
+    top: calc(30% + 180px);
+    width: 100px;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
   }
 }
