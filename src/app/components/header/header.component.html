@@ -1,22 +1,47 @@
-<header class="header">
-  <img src="assets/images/logo.png" alt="Logo" class="logo" />
-  <div class="title" routerLink="/dashboard">
-    <span [innerHTML]="getStyledTitle('აღმოაჩინე სალხინო')"></span>
+<header class="header" [class.hidden]="isHeaderHidden" [class.mobile-menu-expanded]="mobileMenuOpen" (mouseenter)="showHeaderOnHover()">
+  <div class="header-left">
+    <img src="assets/images/logo.png" alt="Logo" class="logo" />
+    <div class="title" routerLink="/dashboard">
+      <span [innerHTML]="getStyledTitle('აღმოაჩინე სალხინო')"></span>
+    </div>
   </div>
 
-<nav class="main-nav">
-  <a *ngFor="let item of menuItems"
-     [routerLink]="item.path"
-     [innerHTML]="getStyledTitle(item.label)"
-     >
-  </a>
+  <!-- 🍔 Hamburger -->
+  <button class="hamburger" (click)="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
 
-</nav>
+  <!-- 📱 Mobile + Desktop nav -->
+  <nav class="main-nav" [class.active]="mobileMenuOpen">
+    <a *ngFor="let item of menuItems" [routerLink]="item.path" [innerHTML]="getStyledTitle(item.label)" (click)="closeMobileMenu()"></a>
 
+    <div class="mobile-actions" *ngIf="mobileMenuOpen">
+      <button class="action-btn notification-btn" (click)="closeMobileMenu()">
+        <i class="fas fa-bell"></i>
+        <span class="badge">{{ notificationCount > 99 ? '99+' : notificationCount }}</span>
+      </button>
 
+      <button class="action-btn heart-btn" (click)="closeMobileMenu()">
+        <i class="fas fa-heart"></i>
+        <span class="badge heart-badge">{{ heartCount }}</span>
+      </button>
 
+      <button class="action-btn lang-btn" (click)="closeMobileMenu()">
+        <img src="assets/icons/flag-ge.png" alt="ქართული" class="lang-icon" />
+      </button>
 
-  <div class="actions">
+      <button class="action-btn add-btn" *ngIf="authService.isLoggedIn()" routerLink="/admin" (click)="closeMobileMenu()">
+        <i class="fas fa-plus"></i>
+      </button>
+
+      <button class="action-btn logout-btn" *ngIf="authService.isLoggedIn()" (click)="logout(); closeMobileMenu()">
+        <i class="fas fa-sign-out-alt"></i> გამოსვლა
+      </button>
+    </div>
+  </nav>
+
+  <!-- ✅ Desktop Actions -->
+  <div class="actions desktop-only">
     <button class="action-btn notification-btn">
       <i class="fas fa-bell"></i>
       <span class="badge">{{ notificationCount > 99 ? '99+' : notificationCount }}</span>
@@ -27,22 +52,15 @@
       <span class="badge heart-badge">{{ heartCount }}</span>
     </button>
 
-        <!-- Language Icon (ქართული დროშის ლოგო) -->
     <button class="action-btn lang-btn">
       <img src="assets/icons/flag-ge.png" alt="ქართული" class="lang-icon" />
     </button>
 
-    <button
-      class="action-btn add-btn"
-      *ngIf="authService.isLoggedIn()"
-      routerLink="/admin">  
-      <i class="fas fa-plus"></i> 
+    <button class="action-btn add-btn" *ngIf="authService.isLoggedIn()" routerLink="/admin">
+      <i class="fas fa-plus"></i>
     </button>
 
-    <button
-      class="action-btn logout-btn"
-      *ngIf="authService.isLoggedIn()"
-      (click)="logout()">
+    <button class="action-btn logout-btn" *ngIf="authService.isLoggedIn()" (click)="logout()">
       <i class="fas fa-sign-out-alt"></i> გამოსვლა
     </button>
   </div>

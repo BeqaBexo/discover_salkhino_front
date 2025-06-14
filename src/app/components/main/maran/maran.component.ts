@@ -4,13 +4,15 @@ import {
   AfterViewInit,
   ViewChildren,
   QueryList,
-  ElementRef
+  ElementRef,
+  Inject,
+  PLATFORM_ID
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { isPlatformBrowser } from '@angular/common';
 import { StoryService } from './story.service';
 import { environment } from '../../../../environments/environment';
-
 
 @Component({
   selector: 'app-maran',
@@ -25,25 +27,30 @@ export class MaranComponent implements OnInit, AfterViewInit {
 
   @ViewChildren('cardRef') cardRefs!: QueryList<ElementRef>;
 
-  constructor(private storyService: StoryService) {}
+  constructor(
+    private storyService: StoryService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit(): void {
     this.fetchStories();
   }
 
   ngAfterViewInit(): void {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
+    if (isPlatformBrowser(this.platformId)) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
 
-    this.cardRefs.forEach(card => {
-      observer.observe(card.nativeElement);
-    });
+      this.cardRefs.forEach(card => {
+        observer.observe(card.nativeElement);
+      });
+    }
   }
 
   fetchStories(): void {
@@ -56,7 +63,7 @@ export class MaranComponent implements OnInit, AfterViewInit {
           return {
             ...item,
             imageUrl: firstImage
-              ? `${environment.apiUrl}/uploads/${firstImage}`    
+              ? `${environment.apiUrl}/uploads/${firstImage}`
               : 'assets/no-image.jpg'
           };
         });

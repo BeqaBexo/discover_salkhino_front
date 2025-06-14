@@ -1,29 +1,13 @@
 <div class="dashboard">
-    <div class="cards">
-      <div class="card" [routerLink]="getRouterLink('hotel-detail')">
-        <i class="fas fa-hotel"></i>
-        <p>სასტუმრო</p>
-      </div>
-      <div class="card" [routerLink]="getRouterLink('maran-detail')">
-        <i class="fas fa-wine-bottle"></i>
-        <p>მარანი</p>
-      </div>
-      <div class="card" [routerLink]="getRouterLink('transport-detail')">
-        <i class="fas fa-car"></i>
-        <p>ტრანსპორტი</p>
-      </div>
-      <div class="card" [routerLink]="getRouterLink('show-history')">
-        <i class="fas fa-newspaper"></i>  
-        <p>საინტერესო ამბები</p>
-      </div>
-      <div class="card" [routerLink]="getRouterLink('albom/show-albom')">
-        <i class="fas fa-images"></i>
-          <p>სურათები</p>
-      </div>
-      <div class="card" [routerLink]="getRouterLink('show-forume')">
-        <i class="fas fa-comments"></i>
-        <p>ფორუმი</p>
-      </div>
+  <div class="cards">
+    <div
+      class="card"
+      *ngFor="let item of cardItems; index as i"
+      [routerLink]="getRouterLink(item.link)"
+      [style.--i]="i"
+    >
+      <i class="{{ item.icon }}"></i>
+      <p>{{ item.label }}</p>
     </div>
   </div>
-  
+</div>

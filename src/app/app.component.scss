@@ -1,0 +1,11 @@
+.layout {
+  transition: padding-top 0.4s ease;
+
+  // ჩვეულებრივ მდგომარეობაში — ცოტა უფრო დაბლა დავწიოთ
+  padding-top: clamp(120px, 14vw, 180px);
+
+  &.mobile-menu-expanded {
+    // მენიუს დროს — კიდევ უფრო დაბლა ჩამოიწიოს
+    padding-top: clamp(260px, 34vw, 340px);
+  }
+}

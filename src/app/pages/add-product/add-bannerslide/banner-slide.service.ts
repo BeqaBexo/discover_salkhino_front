@@ -6,7 +6,9 @@ import { environment } from '../../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class BannerSlideService {
-  private apiUrl = `${environment.apiUrl}/api/BannerSlide`; 
+  private apiUrl = `${environment.apiUrl}/api/BannerSlide`;
+  
+
 
   constructor(private http: HttpClient) {}
 

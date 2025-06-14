@@ -1,53 +1,82 @@
 .footer {
-  background: #2c2c2c; /* Dark background */
-  color: #ffffff; /* White text */
-  padding: 20px 0; /* Spacing around the footer */
+  background: linear-gradient(to right, #141e30, #243b55); // Stylish dark blue gradient
+  color: #f2f2f2;
+  padding: 30px 20px;
+  font-family: 'Segoe UI', sans-serif;
   text-align: center;
 
-  .container {
+  .footer-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 16px;
   }
 
   .company-info {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: #666;
-    text-align: center;
-    margin: 10px 0;
-  
+    font-size: 1rem;
+    color: #bbbbbb;
+    margin-bottom: 15px;
+    line-height: 1.5;
+
     .benu {
-      font-size: 1.0rem; /* Slightly larger font */
-      font-weight: bold;
-      color: #007bff; /* Highlighted color for Benu */
-      text-transform: uppercase; /* Optional: Uppercase text */
+      font-weight: 600;
+      color: #f39c12;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #ffcc00;
+      }
     }
   }
-  
 
   .contact-info {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
     margin-top: 10px;
 
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
+      gap: 10px;
       color: #ffffff;
+      font-size: 0.95rem;
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.3s ease;
 
       i {
-        font-size: 1.2rem; /* Icon size */
+        font-size: 1.2rem;
+        color: #f39c12;
+        transition: transform 0.3s ease;
       }
 
       &:hover {
-        color: #f39c12; /* Highlight color on hover */
+        color: #ffdd57;
+        transform: translateY(-2px);
+
+        i {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+}
+
+// 📱 Responsive adjustments
+@media (max-width: 768px) {
+  .footer {
+    .company-info {
+      font-size: 0.95rem;
+    }
+
+    .contact-info {
+      flex-direction: column;
+      gap: 14px;
+
+      .contact-item {
+        font-size: 1rem;
       }
     }
   }

@@ -1,167 +1,153 @@
-.layout {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 120px 20px 40px;
-  background: #fdfaf8;
-  gap: 60px;
-  flex-wrap: wrap;
-}
 
 .contact-wrapper {
   display: flex;
   gap: 40px;
   max-width: 1200px;
   width: 100%;
+  padding-top: 80px;
   flex-wrap: wrap;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
+  justify-content: center;
 }
 
-/* მარცხენა ბლოკი: საკონტაქტო ინფო */
 .contact-info {
   flex: 1;
-  background: #fff5f0;
+  background: #fff0eb;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.07);
-  min-width: 300px;
-  max-width: 400px;
-
-  h3 {
-    color: #862633;
-    margin-bottom: 20px;
-    font-size: 24px;
-  }
-
-  p {
-    display: flex;
-    align-items: center;
-    margin: 12px 0;
-    color: #444;
-
-    i {
-      color: #862633;
-      margin-right: 10px;
-      font-size: 18px;
-      transition: transform 0.3s ease;
-    }
-
-    &:hover i {
-      transform: scale(1.2);
-    }
-
-    strong {
-      margin-right: 6px;
-      color: #862633;
-    }
-
-    a {
-      color: #862633;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-
-      &:hover {
-        color: #a73c4d;
-        text-decoration: underline;
-      }
-    }
-  }
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+  min-width: 280px;
+  max-width: 420px;
 }
 
-/* მარჯვენა ბლოკი: საკონტაქტო ფორმა */
+.contact-info h3 {
+  color: #a5283a;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+  color: #333;
+}
+
+.contact-info i {
+  color: #a5283a;
+  margin-right: 10px;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.contact-info p:hover i {
+  transform: scale(1.2);
+}
+
+.contact-info strong {
+  margin-right: 6px;
+  color: #a5283a;
+}
+
+.contact-info a {
+  color: #a5283a;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.contact-info a:hover {
+  color: #cc4256;
+  text-decoration: underline;
+}
+
 .contact-page {
   flex: 1;
   min-width: 300px;
-  max-width: 600px;
+  max-width: 620px;
 }
 
 .contact-form-card {
-  background: #ffffff;
-  padding: 30px 60px;
+  background: #fff;
+  padding: 30px 40px;
   border-radius: 20px;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
-  animation: slideUp 0.7s ease-out;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  animation: slideUp 0.6s ease-out;
+}
 
-  h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #862633;
-    font-size: 28px;
-  }
+.contact-form-card h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #a5283a;
+  font-size: 28px;
+}
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-  }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
 
-  .form-group {
-    position: relative;
+.form-group {
+  position: relative;
+}
 
-    input,
-    textarea {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      font-size: 16px;
-      outline: none;
-      transition: 0.3s ease;
-      background: transparent;
-    }
+input,
+textarea {
+  width: 95%;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  background: transparent;
+  outline: none;
+  transition: 0.3s ease;
+}
 
-    textarea {
-      resize: none;
-      height: 120px;
-    }
+textarea {
+  resize: none;
+  height: 120px;
+}
 
-    label {
-      position: absolute;
-      left: 16px;
-      top: 14px;
-      color: #777;
-      font-size: 16px;
-      background: #fff;
-      padding: 0 6px;
-      pointer-events: none;
-      transition: 0.3s ease;
-    }
+label {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  color: #777;
+  font-size: 16px;
+  background: #fff;
+  padding: 0 6px;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
 
-    input:focus + label,
-    input:not(:placeholder-shown) + label,
-    textarea:focus + label,
-    textarea:not(:placeholder-shown) + label {
-      top: -10px;
-      left: 10px;
-      font-size: 13px;
-      color: #862633;
-    }
-  }
+input:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:focus + label,
+textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 12px;
+  font-size: 13px;
+  color: #a5283a;
+}
 
-  button {
-    background-color: #862633;
-    color: white;
-    padding: 14px;
-    font-size: 16px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+button {
+  background-color: #a5283a;
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-    &:hover {
-      background-color: #a83a4f;
-    }
+button:hover {
+  background-color: #c53e54;
+}
 
-    &:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-    }
-  }
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 @keyframes slideUp {
@@ -172,5 +158,23 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    padding: 80px 16px;
+  }
+
+  .contact-form-card {
+    padding: 20px;
+  }
+
+  .contact-form-card h2 {
+    font-size: 24px;
+  }
+
+  label {
+    font-size: 14px;
   }
 }

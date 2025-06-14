@@ -80,9 +80,20 @@ export const appRoutes: Routes = [
     pathMatch: 'full',
   },
 {
-  path: 'კონტაქტი',
+  path: 'contact',
   loadComponent: () =>
     import('./components/main/contact/contact.component').then(m => m.ContactComponent)
 },
+{
+  path: 'gallery',
+  loadComponent: () =>
+    import('./components/main/gallery/gallery.component').then(m => m.GalleryComponent)
+},
+{
+  path: 'about',
+  loadComponent: () =>
+    import('./components/main/about/about.component').then(m => m.AboutComponent)
+}
+
 
 ];

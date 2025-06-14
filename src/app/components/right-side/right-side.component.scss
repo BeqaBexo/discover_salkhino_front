@@ -1,16 +1,16 @@
 .right-slide-show {
   position: fixed;
+  right: clamp(12px, 2vw, 16px);
   top: 40%;
-  right: 2%;
   transform: translateY(-50%);
-  width: 160px;
-  height: 500px;
+  width: clamp(80px, 7vw, 100px);     
+  height: clamp(300px, 37vh, 340px);  
   overflow: hidden;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
   background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  z-index: 8;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
-  z-index: 10;
 
   img {
     width: 100%;
@@ -21,8 +21,7 @@
   }
 
   &:hover {
-    transform: translateY(-50%) scale(1.05);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
 
     img {
       transform: scale(1.1);
@@ -30,25 +29,24 @@
   }
 }
 
+/* 📱 Tablet & Mobile Adaptation */
 @media (max-width: 768px) {
   .right-slide-show {
-    width: 120px;  // ამოაქციე ზომები მობილურისთვის
-    height: 400px;
-    top: 30%;
+    position: relative;
+    top: unset;
+    right: unset;
+    transform: none;
+    width: 70%;
+    max-width: 280px;
+    height: 280px;
+    margin: 20px auto;
+    border-radius: 16px;
+    z-index: 2;
   }
 
-  img {
+  .right-slide-show img {
+    height: 280px;
     object-fit: cover;
-  }
-}
-
-@media (max-width: 480px) {
-  .right-slide-show {
-    width: 100px;
-    height: 350px;
-  }
-
-  img {
-    object-fit: cover;
+    border-radius: 16px;
   }
 }

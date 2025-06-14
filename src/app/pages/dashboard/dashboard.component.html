@@ -1,19 +1,21 @@
-<app-header></app-header>
-<div class="layout">
-  <div class="photo-banner">
+<section class="photo-banner">
+  <div class="banner-wrapper">
     <app-banner></app-banner>
   </div>
-  <div class="content">
-    <app-catalog></app-catalog>
-    <app-left-side></app-left-side> <!-- Left-side slideshow -->
-    <app-right-side></app-right-side> <!-- Right-side slideshow -->
-    <router-outlet></router-outlet> 
-  </div> 
-  <app-main></app-main>
-</div>
+</section>
 
+<section class="content-wrapper">
+  <aside class="side side-left">
+    <app-left-side></app-left-side>
+  </aside>
 
+  <main class="center">
+    <app-catalog></app-catalog>   <!-- აქ კარტებია -->
+  </main>
 
-<app-footer></app-footer>
+  <aside class="side side-right">
+    <app-right-side></app-right-side>
+  </aside>
+</section>
 
-
+<app-main></app-main>

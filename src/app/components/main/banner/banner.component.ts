@@ -22,19 +22,17 @@ export class BannerComponent implements OnInit, OnDestroy {
     this.bannerSlideService.getAllBannerSlides().subscribe(data => {
       this.slides = data.map(item => ({
         image: item.filePath
-          ? `${environment.apiUrl}/uploads/${item.filePath}` 
+          ? `/uploads/${item.filePath}`
           : 'assets/no-image.jpg',
         title: item.titleText,
         description: item.summaryText
       }));
 
-      // Auto-slide only after slides are loaded
       this.startAutoSlide();
     });
   }
 
   ngOnDestroy(): void {
-    // Stop auto-slide when component is destroyed
     this.stopAutoSlide();
   }
 
@@ -45,10 +43,8 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   stopAutoSlide(): void {
-    if (this.autoSlideSubscription) {
-      this.autoSlideSubscription.unsubscribe();
-      this.autoSlideSubscription = null;
-    }
+    this.autoSlideSubscription?.unsubscribe();
+    this.autoSlideSubscription = null;
   }
 
   nextSlide(): void {

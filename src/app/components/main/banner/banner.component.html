@@ -1,12 +1,38 @@
-<div class="carousel">
-  <div class="slide" *ngIf="slides.length > 0">
-    <img [src]="slides[currentSlide].image" alt="slide" />
+<div class="carousel" *ngIf="slides.length">
+  <!-- თითოეულ სლაიდს მაჩვენებს ერთი მთავარი ელემენტი, რადგან src აიღება TS-იდან -->
+  <div class="slide">
+
+    <!--
+      Image:
+      - .fade-image კლასი აყენებს ფეიდ-ინი/ფეიდ-აუთ ეფექტს
+      - თუ გსურთ მომდევნო/წინა გადართვა ანიმაციით, შეიძლება კიდევ ორი <img> გააჟღეროთ
+        და Active/Inactive კლასი გადამოწმდეს, მაგრამ აქ გენერატორიდან src იცვლება.
+    -->
+    <img
+      [src]="slides[currentSlide].image"
+      alt="Slide image"
+      class="fade-image"
+    />
+
+    <!-- ნახევრად გამჭვირვალე ფონი ტექსტისთვის -->
+    <div class="slide-overlay"></div>
+
+    <!-- ტექსტური ნაწილი სლაიდის ცენტრში -->
     <div class="slide-content">
       <h2>{{ slides[currentSlide].title }}</h2>
       <p>{{ slides[currentSlide].description }}</p>
     </div>
+
+    <!-- ნავიგაციის ისრები (Optional) -->
+    <button class="nav prev" (click)="prevSlide()" aria-label="Previous slide">
+      ‹
+    </button>
+    <button class="nav next" (click)="nextSlide()" aria-label="Next slide">
+      ›
+    </button>
   </div>
 
+  <!-- Pagination დუბლიკატი, თუ მიაჩნიათ საჭირო -->
   <div class="pagination" *ngIf="slides.length > 1">
     <span
       class="dot"

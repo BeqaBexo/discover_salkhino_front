@@ -19,5 +19,13 @@ export class CatalogComponent {
     return path;
   }
 
+  cardItems = [
+  { label: 'სასტუმრო', icon: 'fas fa-hotel', link: 'hotel-detail' },
+  { label: 'მარანი', icon: 'fas fa-wine-bottle', link: 'maran-detail' },
+  { label: 'ტრანსპორტი', icon: 'fas fa-car', link: 'transport-detail' },
+  { label: 'ისტორიები', icon: 'fas fa-newspaper', link: 'show-history' },
+  { label: 'ფორუმი', icon: 'fas fa-comments', link: 'show-forume' }
+];
+
 
 }

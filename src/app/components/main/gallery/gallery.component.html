@@ -1,0 +1,52 @@
+
+<app-header></app-header>
+<div class="layout">
+  <section class="gallery-section">
+    <h2 class="gallery-title">📸 ჩვენი სოფლის გალერეა</h2>
+    <p class="gallery-subtitle">სალხინოს მიმზიდველი ადგილების ფოტოები და ვიდეოები</p>
+
+    <!-- 🔍 Filter Section -->
+    <div class="filter-bar">
+      <input type="text" placeholder="ძებნა სახელით..." [(ngModel)]="searchTerm" (input)="filterMedia()" />
+      
+      <select [(ngModel)]="selectedType" (change)="filterMedia()">
+        <option value="">ყველა ტიპი</option>
+        <option value="სამეცნიერო">სამეცნიერო</option>
+        <option value="სატურისტო">სატურისტო</option>
+        <option value="შემეცნებითი">შემეცნებითი</option>
+        <option value="გართობითი">გართობითი</option>
+      </select>
+
+      <div class="radio-group">
+        <label><input type="radio" name="mediaFilter" value="" [(ngModel)]="selectedFormat" (change)="filterMedia()" /> ყველა</label>
+        <label><input type="radio" name="mediaFilter" value="სურათი" [(ngModel)]="selectedFormat" (change)="filterMedia()" /> სურათი</label>
+        <label><input type="radio" name="mediaFilter" value="ვიდეო" [(ngModel)]="selectedFormat" (change)="filterMedia()" /> ვიდეო</label>
+      </div>
+    </div>
+
+    <!-- 🖼 Gallery Grid -->
+    <div class="gallery-grid">
+      <div class="gallery-card" *ngFor="let item of filteredAlboms" (click)="openImage(item)">
+        <ng-container [ngSwitch]="item.format">
+          <img *ngSwitchCase="'სურათი'" [src]="item.imageUrl" alt="{{ item.name }}" />
+          <video *ngSwitchCase="'ვიდეო'" [src]="item.imageUrl" controls></video>
+        </ng-container>
+        <div class="caption">
+          <strong>{{ item.name }}</strong><br />
+          <small>{{ item.type }} | {{ item.format }}</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔍 Modal View -->
+    <div class="image-modal" *ngIf="enlargedItem">
+      <div class="modal-overlay" (click)="closeImage()">
+        <ng-container [ngSwitch]="enlargedItem.format">
+          <img *ngSwitchCase="'სურათი'" [src]="enlargedItem.imageUrl" class="modal-image" />
+          <video *ngSwitchCase="'ვიდეო'" [src]="enlargedItem.imageUrl" class="modal-image" controls autoplay></video>
+        </ng-container>
+        <button class="close-btn" (click)="closeImage()">×</button>
+      </div>
+    </div>
+  </section>
+</div>

@@ -12,7 +12,16 @@
     <li [class.active]="activeTab === 'hotel'" (click)="setActiveTab('hotel')">
       <i class="fas fa-hotel"></i> სასტუმრო
     </li>
-    <!-- დაამატე დანარჩენი ტაბები საჭიროებისამებრ -->
+    <li [class.active]="activeTab === 'story'" (click)="setActiveTab('story')">
+      <i class="fas fa-hotel"></i> ისტორია
+    </li>
+    <li [class.active]="activeTab === 'bannerslide'" (click)="setActiveTab('bannerslide')">
+      <i class="fas fa-hotel"></i>  ბანერი
+    </li>
+    <li [class.active]="activeTab === 'gallery'" (click)="setActiveTab('gallery')">
+      <i class="fas fa-images"></i>  გალერეა
+    </li>
+
   </ul>
 
   <!-- Content -->
@@ -20,6 +29,18 @@
     <ng-container *ngIf="activeTab === 'transport'">
       <app-transport-view></app-transport-view>
     </ng-container>
+
+    <ng-container *ngIf="activeTab === 'story'">
+      <app-add-story></app-add-story>
+    </ng-container>
+
+    <ng-container *ngIf="activeTab === 'bannerslide'">
+      <app-add-banner-slide></app-add-banner-slide>
+    </ng-container>
+
+    <ng-container *ngIf="activeTab === 'gallery'">
+      <app-add-albom></app-add-albom>
+    </ng-container>  
   </div>
 </div>
 </div>

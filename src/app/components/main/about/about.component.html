@@ -1,0 +1,18 @@
+<app-header></app-header>
+<div class="about-layout">
+  <section class="about-section">
+    <p class="about-subtitle">გაიცანი ჩვენი იდეა და მისია</p>
+
+    <div class="about-content">
+      <ul class="animated-list">
+        <li *ngFor="let item of aboutPoints" [@fadeInUp]>
+          <i class="fas fa-leaf icon"></i>
+          <div class="text-block">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>

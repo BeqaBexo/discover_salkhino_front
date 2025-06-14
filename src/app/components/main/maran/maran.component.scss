@@ -1,41 +1,41 @@
 .story-section-wrapper {
-  padding: 3rem 0;
+  padding: 3rem 1rem;
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* თითოეულ ბარათზე წითელი ხაზები მარცხნივ და მარჯვნივ */
 .maran-card {
   background: #fffefc;
-  padding: 3rem;
+  padding: 2.5rem;
   border-radius: 24px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  width: 60vw;
-  max-width: 1400px;
-  margin: auto;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 4rem;
   position: relative;
-
-  &::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 7px;
-    background-color: #fda85d;
-    z-index: 1;
-  }
-
-  &::before {
-    left: 0;
-  }
-
-  &::after {
-    right: 0;
-  }
+  overflow: hidden;
+  transition: all 0.4s ease;
 }
 
-/* ბარათებს შორის დაშორება */
-.maran-card:not(:last-child) {
-  margin-bottom: 6rem;
+.maran-card::before,
+.maran-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background-color: #fda85d;
+  z-index: 1;
+}
+
+.maran-card::before {
+  left: 0;
+}
+
+.maran-card::after {
+  right: 0;
 }
 
 .maran-flex {
@@ -43,33 +43,40 @@
   flex-wrap: wrap;
   gap: 2rem;
   align-items: flex-start;
+  justify-content: space-between;
 }
 
 .main-image {
-  width: 400px;
-  height: auto;
+  width: clamp(300px, 35%, 400px);
   flex-shrink: 0;
   border-radius: 14px;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+  transform: scale(1.02);
 }
 
 .text-column {
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  min-width: 280px;
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #631c27;
+}
 
-  .styled-letter {
-    color: #842029;
-    font-weight: bold;
-    font-size: 1.6rem;
-    text-transform: uppercase;
-  }
+.title .styled-letter {
+  color: #842029;
+  font-weight: bold;
+  font-size: 1.7rem;
+  text-transform: uppercase;
 }
 
 .text-content {
@@ -77,44 +84,66 @@
   line-height: 1.8;
   color: #444;
   text-align: justify;
+}
 
-  &::first-letter {
-    font-size: 1.6rem;
-    color: #842029;
-    font-weight: bold;
-    line-height: 1;
-  }
+.text-content::first-letter {
+  font-size: 1.6rem;
+  color: #842029;
+  font-weight: bold;
+  line-height: 1;
 }
 
 .btn-more {
-  margin-top: 1.5rem;
-  background: #F1D58B;
+  align-self: flex-start;
+  background: #f1d58b;
   color: black;
   border: none;
   padding: 10px 24px;
   font-size: 1rem;
   border-radius: 30px;
   cursor: pointer;
-
-  &:hover {
-    background: #a89c7a;
-  }
+  transition: background 0.3s ease;
 }
 
-/* ✅ მობილურზე სვეტურად */
-@media (max-width: 768px) {
+.btn-more:hover {
+  background: #a89c7a;
+}
+
+@media (max-width: 1024px) {
+  .main-image {
+    width: 100%;
+    max-width: 500px;
+  }
+
   .maran-flex {
     flex-direction: column;
     align-items: center;
   }
 
   .text-column {
-    align-items: center;
     text-align: center;
+    align-items: center;
+  }
+
+  .btn-more {
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .maran-card {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .text-content {
+    font-size: 1rem;
   }
 
   .main-image {
-    width: 100%;
-    max-width: 360px;
+    max-width: 100%;
   }
 }

@@ -1,31 +1,75 @@
-
-
-
-.layout {
-  padding-top: 130px;
-}
-
+/* ========================= */
+/* 📸 Banner Section Styles   */
+/* ========================= */
 .photo-banner {
-  display: flex; /* Center align the banner content */
-  justify-content: center; /* Ensure all child elements are horizontally centered */
-  align-items: center; /* Ensure vertical alignment */
   width: 100%;
-  max-width: 1600px; /* Limit the width of the banner */
-  margin: 0 auto; /* Center the banner section on the page */
-  padding: 20px; /* Add spacing inside the banner container */
+  display: flex;
+  justify-content: center;
+  padding: 0 clamp(10px, 3vw, 20px);
 
-  app-banner {
-    display: block;
+  .banner-wrapper {
     width: 100%;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow for visual appeal */
+    max-width: 1200px;
+    position: relative;
+    z-index: 1;
   }
 }
 
-.scrollable-boxes {
-    position: relative; /* Allows child elements to move with the page */
-    width: 100%; /* Full width of the layout */
-    height: auto; /* Adjusts height based on content */
+/* ========================= */
+/* 🔲 Content Area Styles    */
+/* ========================= */
+/*  ახლა grid–ით ვცვლით, რომ cards 1fr–ში იდგეს  */
+.content-wrapper {
+  display: grid;
+  grid-template-columns: clamp(50px, 8vw, 120px) 1fr clamp(50px, 8vw, 120px);
+  gap: clamp(10px, 2vw, 30px);
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(10px, 3vw, 30px) 0;
+}
+
+/* 🔲 Sidebars (Left/Right) */
+.side {
+  display: flex;
+  justify-content: center;
+  position: relative; /* თუ გინდა, ცეცხლზე absolute-აც შეგიძლია */
+}
+
+/* 🔲 Center (cards) */
+.center {
+  display: flex;
+  justify-content: center; /* cards პირდაპირ ცენტრში აარებს */
+  align-items: flex-start;
+  position: relative;
+  padding: 0 clamp(5px, 2vw, 15px);
+}
+
+/* ========================= */
+/* 🔚 Footer/“Main” Styles    */
+/* ========================= */
+app-main {
+  width: 100%;
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 0 clamp(10px, 3vw, 20px);
+}
+
+/* ========================= */
+/* 📱 Responsive Adjustments */
+/* ========================= */
+@media (max-width: 900px) {
+  .content-wrapper {
+    /* პატარა ეკრანზე გადავდივართ ერთ სვეტზე */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  
+  .side {
+    width: 100%;
+    max-width: unset;
+  }
+  .center {
+    width: 100%;
+  }
+}

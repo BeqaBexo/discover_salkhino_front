@@ -1,1 +1,8 @@
-<router-outlet>
+<!-- app.component.html -->
+<app-header (mobileMenuToggled)="onMobileMenuToggled($event)"></app-header>
+
+<div class="layout" [ngClass]="{ 'mobile-menu-expanded': isMobileMenuOpen }">
+  <router-outlet></router-outlet>
+</div>
+
+<app-footer></app-footer>

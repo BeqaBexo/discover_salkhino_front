@@ -5,7 +5,7 @@ import { environment } from '../../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class BannerSlideService {
-  private apiUrl = `${environment.apiUrl}/api/BannerSlide`; 
+  private apiUrl = `${environment.apiUrl}/api/BannerSlide`; // remove /api if already part of baseUrl
 
   constructor(private http: HttpClient) {}
 
