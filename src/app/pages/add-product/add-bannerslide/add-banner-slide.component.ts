@@ -24,12 +24,13 @@ export class AddBannerSlideComponent {
       summaryText: ['', [Validators.required, Validators.maxLength(1000)]]
     });
   }
-
+  
   onImageSelected(event: any): void {
     this.selectedImage = event.target.files[0];
   }
 
   onSubmit(): void {
+    
     if (this.bannerForm.valid) {
       const formData = new FormData();
       const formValue = this.bannerForm.value;
